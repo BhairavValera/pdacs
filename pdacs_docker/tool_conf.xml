@@ -74,4 +74,7 @@
     <tool file="stats/compare.xml" />
     <!--tool file="plotting/boxplot.xml" /-->
   </section>
+  <section name="MyTools" id="mTools">
+    <tool file="myTools/globus_transfer.xml" />
+  </section>
 </toolbox>

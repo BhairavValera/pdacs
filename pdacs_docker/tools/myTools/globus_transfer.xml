@@ -1,0 +1,17 @@
+<tool id="globus_transfer" name="Transfer data from Globus endpoint" version="0.1.0">
+  <description>Simple file transfer from one endpoint to another (both are hardcoded)</description>
+  <command interpreter="python">
+    globus_transfer.py '$output'
+  </command>
+  <!--
+  <inputs>
+    <param format="fasta" name="input" type="data" label="Source file"/>
+  </inputs>
+  -->
+  <outputs>
+    <data name="output" format="txt"/>
+  </outputs>
+  <stdio>
+    <exit_code range="1:" level="fatal" />
+  </stdio>
+</tool>

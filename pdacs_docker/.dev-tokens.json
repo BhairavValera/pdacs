@@ -1,0 +1,18 @@
+[
+  {
+    "scope": "urn:globus:auth:scope:transfer.api.globus.org:all",
+    "access_token": "Ag7El8w4BNdvYwVnW0oaxJdgK1elwgp3gWQJB8xxxre3pVgQGgSWC1l8DzNKy3n4xkDzgw54Bra57wFz3XqPjIppV3",
+    "refresh_token": null,
+    "token_type": "Bearer",
+    "expires_at_seconds": 1563474879,
+    "resource_server": "transfer.api.globus.org"
+  },
+  {
+    "scope": "profile openid email",
+    "access_token": "Agjylobmp27EgO2r0b7VY0yanelyw2v6jaNqV08gkNlVBq6B3Ns9CJPepYP2Nl4z92r2V11z68VkVKTpQmoGrcnn3xC116EImmMq",
+    "refresh_token": null,
+    "token_type": "Bearer",
+    "expires_at_seconds": 1563474879,
+    "resource_server": "auth.globus.org"
+  }
+]

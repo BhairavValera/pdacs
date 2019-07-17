@@ -1,7 +1,8 @@
 <tool id="camb" name="CAMB"  version="1.0.0">
   <description>Code for Anisotropies in the Microwave Background</description>
   <command>
-    cp /global/project/projectdirs/hacc/PDACS/CAMB/HighLExtrapTemplate_lenspotentialCls.dat .; /project/projectdirs/hacc/PDACS/CAMB/camb $params_ini_file
+    cp /Users/celsloaner/galaxy/CAMB/HighLExtrapTemplate_lenspotentialCls.dat /Users/celsloaner/galaxy/CAMB/camb
+    <!-- '$params_ini_file' -->
   </command>
   <inputs>
     <conditional name="source">
@@ -25,7 +26,7 @@
           <option value="F">No</option>
         </param>
         <when value="T">
-          <param name="ombh2" type="float" label="ombh2" value="0.01"/> 
+          <param name="ombh2" type="float" label="ombh2" value="0.01"/>
           <param name="omch2" type="float" label="omch2" value="0.08"/>
           <param name="omnuh2" type="float" label="omnuh2" value="0"/>
           <param name="omk" type="float" label="omk" value="0"/>
@@ -99,7 +100,7 @@
             <option value="T" selected="True">Yes</option>
             <option value="F">No</option>
           </param>
-  
+
           <param name="l_max_scalar" type="integer" value="2200" label="L max scalar" help=""/>
           <param name="k_eta_max_scalar" type="integer" value="4000" label="K eta max scalar" help=""/>
           <param name="l_max_tensor" type="integer" value="1500" label="L max tensor" help="Tensor settings should be less than or equal to the above"/>
@@ -108,7 +109,7 @@
           <param name="cs2_lam" type="float" value="1" label="Comoving Sound Speed of the dark energy (cs2_lam)" help="1=quintessence"/>
           <param name="temp_cmb" type="float" value="2.726" label="Temp cmb" help="" />
           <param name="helium_fraction" type="float" value="0.24" label="Helium Fraction" help="" />
-    
+
           <param name="initial_power_num" type="integer" value="1" label="Power Spectrum Number" help="" />
           <param name="pivot_scalar" type="float" value="0.05" label="Scalar Pivot" help="" />
           <param name="pivot_tensor" type="float" value="0.05" label="Tensor Pivot" help="" />
@@ -121,7 +122,7 @@
             <option value="T" selected="True">Yes</option>
             <option value="F">No</option>
           </param>
-  
+
           <param name="initial_condition" type="select" label="Initial Scalar Perturbation Mode" help="initial_condition">
             <option value="1" selected="True">Adiabatic</option>
             <option value="2">CDM isocurvature</option>
@@ -134,13 +135,13 @@
             <option value="0" selected="True">Regular (Neutrino Vorticity Mode)</option>
             <option value="1">Magnetic (Neutrino Vorticity Mode)</option>
           </param>
-  
+
           <param name="COBE_normalize" type="select" label="Use the COBE Normalization" help="">
             <option value="T">Yes</option>
             <option value="F" selected="True">No</option>
           </param>
           <param name="CMB_outputscale" type="float" value="7.4311e12" label="CMB Output Scale" help="To get MuK^2 set realistic initial amplitude (e.g. scalar_amp(1) = 2.3e-9 above) and otherwise for dimensionless transfer functions set scalar_amp(1)=1 and use CMB_outputscale = 1" />
-  
+
           <param name="transfer_high_precision" type="select" label="Transfer High Precision" help="">
             <option value="T">Yes</option>
             <option value="F" selected="True">No</option>
@@ -152,7 +153,7 @@
           <param name="transfer_kmax" type="float" value="2" label="Transfer Kmax"/>
           <param name="transfer_k_per_logint" type="float" value="0" label="Transfer K per logint"/>
           <param name="transfer_num_redshifts" type="integer" value="0" label="Number of Redshifts"/>
-  
+
           <conditional name="bispectrum_params_cond">
             <param name="do_bispectrum" type="select" label="Do Lensing or Primordial Bispectrum" help="">
               <option value="F" selected="True">No</option>
@@ -331,7 +332,7 @@ output_root = camb
 #set $ns = float(row[0])
 
 
-do_nonlinear = 0 
+do_nonlinear = 0
 #set $ombh2_var = $omega_b * $hubbleConst * $hubbleConst
 ombh2 =  $ombh2_var
 #set $omch2_var = ($omegaDM - $omega_b ) * $hubbleConst * $hubbleConst
@@ -357,7 +358,7 @@ tensor_spectral_index(1) = 0
 re_use_optical_depth = T
 re_optical_depth = 0.09
 
-#else 
+#else
 
 hubble = $source.hubble
 w = $source.w
@@ -411,20 +412,20 @@ do_lensing = $source.params.do_lensing
 l_max_scalar = $source.params.l_max_scalar
 k_eta_max_scalar = $source.params.k_eta_max_scalar
 l_max_tensor = $source.params.l_max_tensor
-k_eta_max_tensor = $source.params.k_eta_max_tensor 
+k_eta_max_tensor = $source.params.k_eta_max_tensor
 cs2_lam = $source.params.cs2_lam
-temp_cmb = $source.params.temp_cmb 
+temp_cmb = $source.params.temp_cmb
 helium_fraction = $source.params.helium_fraction
 initial_power_num = $source.params.initial_power_num
-pivot_scalar = $source.params.pivot_scalar 
+pivot_scalar = $source.params.pivot_scalar
 pivot_tensor = $source.params.pivot_tensor
 initial_ratio(1) = $source.params.initial_ratio
-RECFAST_fudge = $source.params.RECFAST_fudge 
-RECFAST_fudge_He = $source.params.RECFAST_fudge_He 
+RECFAST_fudge = $source.params.RECFAST_fudge
+RECFAST_fudge_He = $source.params.RECFAST_fudge_He
 RECFAST_Heswitch = $source.params.RECFAST_Heswitch
-RECFAST_Hswitch = $source.params.RECFAST_Hswitch 
-initial_condition = $source.params.initial_condition 
-initial_vector = $source.params.initial_vector 
+RECFAST_Hswitch = $source.params.RECFAST_Hswitch
+initial_condition = $source.params.initial_condition
+initial_vector = $source.params.initial_vector
 vector_mode = $source.params.vector_mode
 COBE_normalize = $source.params.COBE_normalize
 CMB_outputscale = $source.params.CMB_outputscale
@@ -494,7 +495,7 @@ cs2_lam = 1
 temp_cmb = 2.726
 helium_fraction = 0.24
 initial_power_num = 1
-pivot_scalar = 0.05 
+pivot_scalar = 0.05
 pivot_tensor = 0.05
 initial_ratio(1) = 1
 RECFAST_fudge = 1.14
