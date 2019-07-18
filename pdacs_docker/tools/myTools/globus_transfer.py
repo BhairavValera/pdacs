@@ -4,7 +4,7 @@ import json
 
 # Loading tokens
 tokens = None
-with open("/cosmo/pdacs/pdacs_docker/.dev-tokens.json", 'r') as tokens_file:
+with open("/galaxy-central/database/jobs_directory/.dev-tokens.json", 'r') as tokens_file:
     tokens = json.load(tokens_file)
 TRANSFER_TOKENS = tokens[0]
 AUTH_TOKENS = tokens[1]
@@ -16,14 +16,12 @@ TRANSFER_TOKEN = TRANSFER_TOKENS["access_token"]
 authorizer = globus_sdk.AccessTokenAuthorizer(TRANSFER_TOKEN)
 tc = globus_sdk.TransferClient(authorizer=authorizer)
 
-user = 'testvalera23@gmail.com'
-
 # high level interface; provides iterators for list responses
 source_endpoint_id = 'ffb116e6-d39e-11e7-9679-22000a8cbd7d'
 source_endpoint_path = '/Coyote/Grid/M001/L180/G001/aout.dat'
 
 destination_endpoint_id = '3dce4b3c-24d0-11e9-9fa2-0a06afd4a22e'
-destination_endpoint_path = '/cosmo/scratch/galaxy_ftp'
+destination_endpoint_path = '/export/ftp/'
 
 label = "Petrel to cosmo endpoint"
 
