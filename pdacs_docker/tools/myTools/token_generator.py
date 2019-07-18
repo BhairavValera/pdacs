@@ -18,5 +18,5 @@ token_response = client.oauth2_exchange_code_for_tokens(auth_code)
 globus_auth_data = token_response.by_resource_server['auth.globus.org']
 globus_transfer_data = token_response.by_resource_server['transfer.api.globus.org']
 
-with open("/Users/celsloaner/galaxy/database/jobs_directory/.dev-tokens.json", "w") as write_file:
+with open("/cosmo/pdacs/pdacs_docker/.dev-tokens.json", "w") as write_file:
     json.dump([globus_transfer_data, globus_auth_data], write_file, indent=2)
