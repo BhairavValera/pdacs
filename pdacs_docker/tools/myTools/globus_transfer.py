@@ -4,7 +4,7 @@ import json
 
 # Loading tokens
 tokens = None
-with open("/galaxy-central/database/jobs_directory/.dev-tokens.json", 'r') as tokens_file:
+with open("/cosmo/pdacs/pdacs_docker/.dev-tokens.json", 'r') as tokens_file:
     tokens = json.load(tokens_file)
 TRANSFER_TOKENS = tokens[0]
 AUTH_TOKENS = tokens[1]
