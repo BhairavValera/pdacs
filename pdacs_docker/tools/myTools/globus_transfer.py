@@ -46,7 +46,7 @@ rule_data = {
     "permissions": "rw",
 }
 
-result = tc.add_endpoint_acl_rule(endpoint_id, rule_data)
+result = tc.add_endpoint_acl_rule(destination_endpoint_id, rule_data)
 rule_id = result["access_id"]
 
 print("Go to the galaxy web interface and choose 'Get Data' -> 'Upload File' -> 'Choose FTP File' to visualize your data")
