@@ -21,7 +21,7 @@ source_endpoint_id = 'ffb116e6-d39e-11e7-9679-22000a8cbd7d'
 source_endpoint_path = '/MiraTitanU/Grid/M000/L2100/HACC000/run/run000/'
 
 destination_endpoint_id = 'f4820a2c-ad64-11e9-821e-02b7a92d8e58'
-destination_endpoint_path = ''
+destination_endpoint_path = 'cosmo/scratch/galaxy_ftp/'
 
 label = "Petrel to cosmo endpoint"
 
@@ -37,5 +37,16 @@ tc.endpoint_autoactivate(source_endpoint_id)
 tc.endpoint_autoactivate(destination_endpoint_id)
 
 transfer_result = tc.submit_transfer(tdata)
+
+rule_data = {
+    "DATA_TYPE": "access",
+    "principal_type": "identity",
+    "principal": destination_endpoint_id,
+    "path": destination_endpoint_path,
+    "permissions": "rw",
+}
+
+result = tc.add_endpoint_acl_rule(endpoint_id, rule_data)
+rule_id = result["access_id"]
 
 print("Go to the galaxy web interface and choose 'Get Data' -> 'Upload File' -> 'Choose FTP File' to visualize your data")
