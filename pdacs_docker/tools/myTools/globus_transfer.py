@@ -20,8 +20,8 @@ tc = globus_sdk.TransferClient(authorizer=authorizer)
 source_endpoint_id = 'ffb116e6-d39e-11e7-9679-22000a8cbd7d'
 source_endpoint_path = '/Coyote/Grid/M000/L365'
 
-destination_endpoint_id = 'f4820a2c-ad64-11e9-821e-02b7a92d8e584'
-destination_endpoint_path = '/cosmo/galaxy_transfer'
+destination_endpoint_id = 'e6d0625a-ae74-11e9-8510-02c7f54a0dac'
+destination_endpoint_path = '/cosmo/scratch/galaxy_ftp/'
 
 label = "Petrel to cosmo endpoint"
 
