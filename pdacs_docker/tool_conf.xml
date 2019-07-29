@@ -3,7 +3,7 @@
   <section name="Get Data" id="getext">
     <tool file="data_source/upload.xml"/>
     <tool file="data_source/uploadDB.xml" />
-    <!--<tool file="data_source/select_snapshot.xml"/>-->
+    <tool file="data_source/select_snapshot.xml"/>
     <tool file="data_source/select_snapshot_alex.xml"/>
     <tool file="filters/dump_env.xml" />
   </section>
