@@ -9,7 +9,7 @@ ENV GALAXY_CONFIG_BRAND=PDACS \
 
 WORKDIR /galaxy-central
 
-ADD tool_conf.xml /galaxy-central/config/tool_conf.xml
+ADD tool_conf.xml /galaxy-central/tool_conf.xml
 
 RUN rm -rf tools
 RUN mkdir -m 777 /galaxy-central/database/jobs_directory
