@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<datatypes>
+  <registration converters_path="lib/galaxy/datatypes/converters" display_path="display_applications">
+    <datatype extension="csv" type="galaxy.datatypes.tabular:Tabular" subclass="True" display_in_upload="true" /> <!-- FIXME: csv is 'tabular'ized data, but not 'tab-delimited'; the class used here is intended for 'tab-delimited' -->
+    <!-- what is this one?-->
+    <datatype extension="data" type="galaxy.datatypes.data:Data" mimetype="application/octet-stream" max_optional_metadata_filesize="1048576" />
+    <datatype extension="toolshed.gz" type="galaxy.datatypes.binary:Binary" mimetype="multipart/x-gzip" subclass="True" />
+    <!-- image types -->
+    <!--
+    <datatype extension="html" type="galaxy.datatypes.images:Html" mimetype="text/html"/>
+    <datatype extension="jpg" type="galaxy.datatypes.images:Jpg" mimetype="image/jpeg"/>
+    <datatype extension="tiff" type="galaxy.datatypes.images:Tiff" mimetype="image/tiff"/>
+    <datatype extension="bmp" type="galaxy.datatypes.images:Bmp" mimetype="image/bmp"/>
+    <datatype extension="im" type="galaxy.datatypes.images:Im" mimetype="image/im"/>
+    <datatype extension="pcd" type="galaxy.datatypes.images:Pcd" mimetype="image/pcd"/>
+    <datatype extension="pcx" type="galaxy.datatypes.images:Pcx" mimetype="image/pcx"/>
+    <datatype extension="ppm" type="galaxy.datatypes.images:Ppm" mimetype="image/ppm"/>
+    <datatype extension="psd" type="galaxy.datatypes.images:Psd" mimetype="image/psd"/>
+    <datatype extension="xbm" type="galaxy.datatypes.images:Xbm" mimetype="image/xbm"/>
+    <datatype extension="xpm" type="galaxy.datatypes.images:Xpm" mimetype="image/xpm"/>
+    <datatype extension="rgb" type="galaxy.datatypes.images:Rgb" mimetype="image/rgb"/>
+    <datatype extension="pbm" type="galaxy.datatypes.images:Pbm" mimetype="image/pbm"/>
+    <datatype extension="pgm" type="galaxy.datatypes.images:Pgm" mimetype="image/pgm"/>
+    <datatype extension="eps" type="galaxy.datatypes.images:Eps" mimetype="image/eps"/>
+    <datatype extension="rast" type="galaxy.datatypes.images:Rast" mimetype="image/rast"/>
+    <datatype extension="laj" type="galaxy.datatypes.images:Laj"/>
+    <datatype extension="pdf" type="galaxy.datatypes.images:Pdf" mimetype="application/pdf"/>
+    <datatype extension="png" type="galaxy.datatypes.images:Png" mimetype="image/png"/>
+    <datatype extension="qual" type="galaxy.datatypes.qualityscore:QualityScore" />
+    <datatype extension="svg" type="galaxy.datatypes.images:Image" mimetype="image/svg+xml"/>
+    -->
+    <datatype extension="haloFinder_binary" type="galaxy.datatypes.haloFinder_binary"/>
+    <datatype extension="yml" type="galaxy.datatypes.data:Yaml" mimetype="text/yaml" />
+    <datatype extension="db" type="galaxy.datatypes.db:Db" mimetype="application/db" display_in_upload="true"/>
+    <datatype extension="cm" type="galaxy.datatypes.db:Cm" mimetype="application/db" subclass="True" display_in_upload="true"/>
+    <datatype extension="dbm" type="galaxy.datatypes.db:Dbm" mimetype="application/db" subclass="True" display_in_upload="true"/>
+    <datatype extension="dbi" type="galaxy.datatypes.db:Dbi" mimetype="application/db" subclass="True" display_in_upload="true"/>
+    <datatype extension="txt" type="galaxy.datatypes.data:Text" display_in_upload="true"/>
+    <!-- also not currently sure what this is -->
+    <datatype extension="linecount" type="galaxy.datatypes.data:LineCount" display_in_upload="false"/>
+    <datatype extension="xml" type="galaxy.datatypes.xml:GenericXml" mimetype="application/xml" display_in_upload="true"/>
+    <datatype extension="bgzip" type="galaxy.datatypes.binary:Binary" subclass="True" />
+    <datatype extension="xls" type="galaxy.datatypes.tabular:Tabular"/>
+  </registration>
+
+  <sniffers>
+    <!--
+    The order in which Galaxy attempts to determine data types is
+    important because some formats are much more loosely defined
+    than others.  The following list should be the most rigidly
+    defined format first, followed by next-most rigidly defined,
+    and so on.
+    -->
+    <sniffer type="galaxy.datatypes.db:dbm"/>
+    <sniffer type="galaxy.datatypes.db:dbi"/>
+    <sniffer type="galaxy.datatypes.data:db"/>
+    <sniffer type="galaxy.datatypes.haloFinder_binary"/>
+    <sniffer type="galaxy.datatypes.xml:GenericXml"/>
+    <sniffer type="galaxy.datatypes.images:Html"/>
+    <sniffer type="galaxy.datatypes.images:Pdf"/>
+    <sniffer type="galaxy.datatypes.images:Jpg"/>
+    <sniffer type="galaxy.datatypes.images:Png"/>
+    <sniffer type="galaxy.datatypes.images:Tiff"/>
+    <sniffer type="galaxy.datatypes.images:Bmp"/>
+    <sniffer type="galaxy.datatypes.images:Gif"/>
+    <sniffer type="galaxy.datatypes.images:Im"/>
+    <sniffer type="galaxy.datatypes.images:Pcd"/>
+    <sniffer type="galaxy.datatypes.images:Pcx"/>
+    <sniffer type="galaxy.datatypes.images:Ppm"/>
+    <sniffer type="galaxy.datatypes.images:Psd"/>
+    <sniffer type="galaxy.datatypes.images:Xbm"/>
+    <sniffer type="galaxy.datatypes.images:Rgb"/>
+    <sniffer type="galaxy.datatypes.images:Pbm"/>
+    <sniffer type="galaxy.datatypes.images:Pgm"/>
+    <sniffer type="galaxy.datatypes.images:Xpm"/>
+    <sniffer type="galaxy.datatypes.images:Eps"/>
+    <sniffer type="galaxy.datatypes.images:Rast"/>
+    <!--
+    Keep this commented until the sniff method in the assembly.py
+    module is fixed to not read the entire file.
+    <sniffer type="galaxy.datatypes.assembly:Amos"/>
+    -->
+  </sniffers>
+</datatypes>
